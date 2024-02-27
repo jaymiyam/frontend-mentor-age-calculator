@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+
+  <body>
+    <div class="container" id="app" v-cloak>
+      <section class="birthday-input">
+        <form @submit.prevent="submitBirthday">
+          <div class="input-cont">
+            <div class="form-control">
+              <label for="day-input">Day</label>
+              <input
+                :class="{alert: !!dayErrorMsg}"
+                type="text"
+                name="day"
+                id="day-input"
+                placeholder="DD"
+                ref="dayInput"
+              />
+              <p v-if="dayErrorMsg" class="alert-msg">{{ dayErrorMsg }}</p>
+            </div>
+            <div class="form-control">
+              <label for="month-input">month</label>
+              <input
+                :class="{alert: !!monthErrorMsg}"
+                type="text"
+                name="month"
+                id="month-input"
+                placeholder="MM"
+                ref="monthInput"
+              />
+              <p v-if="monthErrorMsg" class="alert-msg">{{ monthErrorMsg }}</p>
+            </div>
+            <div class="form-control">
+              <label for="year-input">year</label>
+              <input
+                :class="{alert: !!yearErrorMsg}"
+                type="text"
+                name="year"
+                id="year-input"
+                placeholder="YYYY"
+                ref="yearInput"
+              />
+              <p v-if="yearErrorMsg" class="alert-msg">{{ yearErrorMsg }}</p>
+            </div>
+          </div>
+          <hr />
+          <button type="submit" class="btn">
+            <img src="assets/images/icon-arrow.svg" alt="arrow" />
+          </button>
+        </form>
+      </section>
+      <section class="result">
+        <p class="result__text">
+          <span class="result__number" id="year-output">{{ yearOutput }}</span>
+          years
+        </p>
+        <p class="result__text">
+          <span class="result__number" id="month-output"
+            >{{ monthOutput }}</span
+          >
+          months
+        </p>
+        <p class="result__text">
+          <span class="result__number" id="day-output">{{ dayOutput }}</span>
+          days
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
