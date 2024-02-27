@@ -146,6 +146,11 @@ hr {
 }
 
 @media only screen and (max-width: 500px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .form-control {
     & input {
       width: 10rem;
